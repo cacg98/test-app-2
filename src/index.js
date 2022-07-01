@@ -1,10 +1,13 @@
-const expres = require('express')
-const app = expres()
+const express = require('express')
+const app = express()
 
-app.get('/', (req, res) => {
-    res.send('it works')
-})
+// middleware
+app.use(express.json())
 
+// routes
+app.use(require('./routes/index'))
+
+// starting the app
 app.listen(3000, () => {
     console.log('app running');
 })
